@@ -17,6 +17,7 @@ Participants must bring their own laptop. Prior to the start of the workshop ple
 - git
   - Windows - it is preferrable to download [git for Windows](https://gitforwindows.org/), make sure bash is also installed.
   - Other operating systems, download git [here](https://git-scm.com/install/).
+- We will be using [GitHub](github.com) for this workshop. Please set up an account prior to the workshop.
 
 ### Required readings
 - [Wilson, G., Aruliah, D.A., Brown, C.T., Chue Hong, N.P., Davis, M., Guy, R.T, et al. (2014). Best Practices for Scientific Computing. PLoS Biol 12(1): e1001745. https://doi.org/10.1371/journal.pbio.1001745](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)
