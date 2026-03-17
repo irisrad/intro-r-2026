@@ -1,5 +1,5 @@
 ---
-title: "Version Control: Git Good"
+title: "Version Control: `git` Good"
 subtitle: "*from PSU TREC's Intro to R Workshop*"
 author: "Iris Rademacher"
 date: "March 18th, 2026"
@@ -7,7 +7,7 @@ date: "March 18th, 2026"
 
 # Introduction
 
-## What is [version control](https://en.wikipedia.org/wiki/Version_control)?
+## [Version control](https://en.wikipedia.org/wiki/Version_control)
 
 ### TL;DR
 
@@ -19,7 +19,11 @@ date: "March 18th, 2026"
 * Google Docs' View History
 * Big_Project-FINAL (1).docx
 
-## What is a Version Control System (VCS) and why might you use one when writing code?
+## Version Control System (VCS)
+
+### TL;DR
+
+> A VCS is a piece of software that automates various aspects of version control.
 
 ### Change management
 
@@ -42,7 +46,11 @@ VCS workflows can facilitate documentation and attribution. For example:
 
 > Be kind to your future self, as you may be your own most frequent collaborator! When documenting your changes, try to include all the information you will want to know when you are revisiting this project three months from now.
 
-## What is [`git`](https://git-scm.com/)?
+## [`git`](https://git-scm.com/)
+
+### TL;DR
+
+> `git` is a VCS in the form of a program that keeps track of changes made to all files in a given folder. It is primarily used to access past versions of files or combine different versions of them that have had changes made in parallel.
 
 ### History lesson
 
@@ -50,14 +58,14 @@ VCS workflows can facilitate documentation and attribution. For example:
 * Designed as a version control solution for the Linux kernel
 * Widely adopted by people who code for a living
 
-### How do you use `git`?
+### Interface
 
 `git` is intended to be used from the command line, but point-and-click-style (and adjacent) clients also exist. For example:
 
 * [GitHub Desktop](https://github.com/apps/desktop)
 * [RStudio (!)](https://docs.posit.co/ide/user/ide/guide/tools/version-control.html#getting-started)
 
-## What is [GitHub](https://docs.github.com/en) and [how is it different from `git`](https://docs.github.com/en/get-started/start-your-journey/about-github-and-git)?
+## [GitHub](https://docs.github.com/en)
 
 ### TL;DR
 
@@ -77,7 +85,7 @@ GitHub has visual tools for:
 * User support
 * Building runnable software from code
 
-### Other options
+### Alternatives
 
 There are other `git` cloud providers out there that are less ... vertically-integrated. Some of them are even open source projects themselves!
 
@@ -86,26 +94,227 @@ There are other `git` cloud providers out there that are less ... vertically-int
 
 These platforms often have [instructions](https://docs.gitlab.com/user/project/import/github/) for [moving your code over](https://docs.codeberg.org/advanced/migrating-repos/) from GitHub.
 
+## Command line
+
+### TL;DR
+
+> The command line is a way of giving your computer instructions by typing them out (effectively, writing short programs, or "scripts"). This can be more efficient and make automation easier than navigating a point-and-click UI, but worse for more visual use cases.
+
+# `git` workflow
+
+## Command line basics
+
+Let's take a look at some common commands that are included with `bash`.
+
+### Access
+
+* Windows
+  * `Start Menu > Git Bash`
+    * This is an emulation of the command line that is installed by default on macOS and Linux
+    * Windows has its own command prompt but it is harder to use with `git`
+* macOS
+  * `Spotlight Search (Cmd+Space) > Terminal`
+* Linux
+  * You know what you're doing (if you don't, `"Windows" key > Terminal`, probably)
+
+> Hint: Press `Tab` to try and autocomplete a command or filename you have started typing out.
+
+### Navigation
+
+```bash
+# Prints a list of the files in the current folder
+ls
+# Prints the name of the current folder
+pwd
+# Moves to the given folder
+cd my-folder/sub-folder
+# . means the current folder
+ls .
+# .. means the parent folder of the current folder
+cd ..
+```
+
+### File inspection
+
+```bash
+# Prints the contents of the given file
+cat foo.txt
+# Prints the given string
+echo "hello"
+# Prints the value of the variable VAR
+echo $VAR
+```
+
+### File manipulation
+
+> DANGER!!! It is relatively easy to **permanently** overwrite or delete files using these commands. Approach with care, and don't be afraid to ask for help.
+
+```bash
+# Copies the given file to the given folder or destination file 
+cp file1 my-folder/
+cp file1 my-folder/copied-file
+# Moves the given file to the given folder or destination file
+mv file1 my-folder/
+mv file1 my-folder/renamed-file
+# Deletes the given file
+rm file1
+```
+
+> If a destination file that already exists is provided to `cp` or `mv`, it will be overwritten. Files overwritten by `cp` or `mv` or deleted by `rm` are not sent to the Trash, but instead fully erased.
+
+## `git` vocabulary
+
+* Repository: a folder that `git` is keeping track of
+  * Root: the base folder of the repository
+* Commit: a snapshot of all the files in the repository at a given time
+* Branch: a name (e.g. `main`) referring to a commit
+  * Default branch: the branch that is considered "canonical"
+* Fork: a copy of an entire repository (including e.g. past commits)
+* Remote: a URL pointing to another copy of the repository
+  * Upstream: the "canonical" copy of the repository
+
+## GitHub setup
+
+### New repository
+
+* Click on your profile icon in the top right
+* Select `Repositories` from the dropdown
+* Click the `New` button near the top right
+
+### Existing repository
+
+* Navigate to the repository
+* Click the `Fork` button near the top right
+* On the next page, click the `Create fork` button
+
+### Download code (1/2)
+
+> This approach requires that you have [set up an SSH key for GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+
+* Navigate to the repository
+* Click the green `Code` button near the top right
+* switch to the `SSH` tab
+* Copy the link
+
+## Command line setup
+
+### Configure `git`
+
+```bash
+git config --global user.name "Firstname Lastname"
+# Should match the email you used when signing up for GitHub
+git config --global user.email "email@example.com"
+```
+
+### Download code (2/2)
+
+```bash
+# cd to the folder where you would like to put your copy of the repository (as a subfolder)
+cd my-repositories
+# Creates a subfolder with your copy of the repository with the same name as the repository
+git clone git@github.com:my-username/intro-r-2026
+```
+
+### Configure upstream
+
+```bash
+# Registers the main repository locally under the name "upstream"
+git remote add upstream git@github.com:PSUTrec/intro-r-2026
+# Gets a local copy of the main repository's branches (doesn't automatically reconcile your changes with them)
+git fetch upstream
+```
+
+## Updating the code
+
+### Inspecting changes
+
+```bash
+# What files have changed since the last commit
+git status
+# What changes have been made within those files
+git diff
+# If you have already run git add on some files, they will only show up as "staged"
+git diff --staged
+```
+
+### Looking at history
+
+```bash
+# Lists commit messages and authors
+git log
+# Adds in a diff-like view of the changes for each commit
+git log -p
+# Commit name and author name that last modified each line of the file
+git blame my-file
+```
+
+### Switching to a branch
+
+```bash
+# Creates a new branch that will be kept separate from the default one
+git switch -c my-branch
+# Switches to an existing branch
+git switch main
+```
+
+### Creating a commit
+
+```bash
+# Adds this entire folder to the list of things to commit
+git add .
+# Adds a single file
+git add my-file
+# Saves a snapshot of all added files as they currently are
+git commit -m "a short description of the changes"
+```
+
+### Syncing your work
+
+```bash
+# Switch to whatever branch your work is on
+git switch my-branch
+# Get the latest changes from the main repository
+git fetch upstream main
+# Combine your code with the code in the main repository automatically
+git merge upstream/main
+# Sends a copy of your current branch to your fork on GitHub
+git push origin HEAD
+```
+
+> If the output of `git merge` tells you there are merge conflicts, you can resolve them by editing the files with a text editor and reconciling the differences yourself
+
+## Contributing changes on GitHub
+
+* Navigate to your fork on GitHub
+* Click the `Contribute` button above the list of files in the repository
+* Click the `Open pull request` button in the dropdown
+* Write up a description of your changes
+* Click the `Create pull request` button
+* Someone with the correct permissions on the repository can then approve your changes, or request that you make even more changes before they accept them
+
 # Demonstration
 
-## Workflow 1
+Let's take a look at some of this in action.
 
-## Workflow 2
+# Activity
 
-## Merge conflicts
+> Try to do the following exercises with a partner (each of you should do each step). Consult the slides as needed, and please ask for help if you get stuck!
+
+* Make a fork of the `PSUTrec/intro-r-2026` repository on GitHub
+* Clone it to your computer
+* Make some changes on the `main` branch
+* Push them to your fork
+* Create a pull request targeting your partner's fork
+* Approve your partner's changes and merge them into your fork's `main` branch
 
 # Appendices
 
-## Glossary
-
-* Open source
-* Linux
-
 ## Further reading
 
-[Common `git` patterns/workflows](https://happygitwithr.com/workflows-intro)
-[Exporting R Markdown files for GitHub](https://rmarkdown.rstudio.com/github_document_format.html)
-[Rendering Quarto files with GitHub Pages](https://quarto.org/docs/publishing/github-pages.html)
+* [Common `git` patterns/workflows](https://happygitwithr.com/workflows-intro)
+* [Resolving merge conflicts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)
+* [Exporting R Markdown files for GitHub](https://rmarkdown.rstudio.com/github_document_format.html)
+* [Rendering Quarto files with GitHub Pages](https://quarto.org/docs/publishing/github-pages.html)
 
 ## How can I turn this Markdown file into an HTML slideshow?
 
@@ -115,168 +324,13 @@ Once you have `pandoc`, run the following `bash` commands from the root of the r
 
 ```bash
 mkdir -p slides/output
-pandoc -t slidy --template slides/template.html --slide-level=3 --embed-resources --standalone -o slides/output/git.html slides/git.md
+pandoc -t slidy \
+  --template slides/template.html \
+  --slide-level=3 \
+  --embed-resources \
+  --standalone \
+  -o slides/output/git.html \
+  slides/git.md
 ```
 
-You can then [view the HTML file in a web browser](https://www.geeksforgeeks.org/html/how-to-access-an-html-document-in-a-browser/).
-
-<!--
-## 
-
-
-## git workflow
-* if no repository, create or find on github and `git clone`
-* build your code on your computer and make changes
-* lint your code and run tests if applicable
-* see files to be added with `git status`
-* see changes within files with `git diff` (use `--staged` if you have already `add`ed some files/changes)
-* update `.gitignore` file if necessary
-* add changes with `git add .` or `git add ./my_file ./my_dir`
-* see file changes one more time with `git diff --staged`
-* save changes with `git commit -m "a short description of my changes and why I made them"`
-* sync to github with `git push -u origin my_branch`
-* if you are on a fork, click on the convenient url in the command output, or the banner on github, or manually go to the pull requests tab and create one
-* if applicable, wait for continuous integration to finish and notify whoever needs to review your code
-* merge the pull request
-
-
-
-
-
-
-
-
-
-
-
-### Automation
-
-> Code is typically stored as a plain text file. Processing these files using existing purpose-built software/tools can make your life easier!
-
-
-
-## Outline
-
-* install instructions
-  * git
-  * bash
-  * sign up for github
-  * ssh keys
-  * https://happygitwithr.com/git-client
-* config
-  * https://happygitwithr.com/hello-git
-  * cli
-  * fileeeeee
-* commit
-  * message
-  * amend
-  * multiple authors
-* how to cite code/other open sci workflows
-  * https://swcarpentry.github.io/git-novice/10-open.html
-* github flavored markdown
-  * README
-* github project management
-  * analogous features on codeberg and gitlab
-* documentation
-  * README md files
-  * wikis
-* user support
-  * discussions/issues
-* software licenses
-* ssh vs https
-* branches
-* forks
-* merge
-  * merge conflicts
-* rebase
-  * rebase workflow vs merge workflow
-* protected branches
-* push/pull
-  * be as explicit as possible! danger!!
-* secret management
-* github actions
-* diff
-* status
-* remote
-* visual tools
-  * mergetools
-  * branch visualization
-  * clients
-* plumbing vs porcelain
-* binary vs plaintext
-  * don't put generated files in there mostly, lockfiles are an exception
-* gitignore
-* large file support
-* gitlab/codeberg/gitea
-* jupyter notebooks probably have a dedicated diff tool
-* putting existing project in git/on github
-
-
-## Installation
-
-## Why should I use the command line? And how do I even get started?
-
-* Can be more powerful than visual tools, but one isn't always better than the other
-* Windows
-  * Start Menu > Git Bash
-    * This is an emulation of the command line that is installed by default on macOS and Linux
-    * Windows has its own command prompt but it is harder to use with Git
-* macOS
-  * Spotlight Search (Cmd+Space) > Terminal
-* Linux
-  * You know what you're doing (if you don't, "Windows" key > Terminal probably gets you there)
-
-## Great, now I can type out messages to my computer. What now?
-
-* Common commands (included in the GNU coreutils, which are programs for doing small things and can be combined to do big things)
-  * `ls`
-    * Prints a list of the files in the current folder
-  * `pwd`
-    * Prints the name of the current folder
-  * `cd`
-    * Moves to the given folder
-  * `cat`
-    * Prints the contents of the given file
-  * `echo`
-    * Prints the given string
-      * If you put `$VAR` in the string, it will be replaced by the value of the variable `VAR`
-  * `mv`
-  * `cp`
-  * `rm`
-    * DANGER!!
-* Tab completion is your new best friend!
-  * Press tab to complete commands, options, and filenames
-
-# Definitions
-
-## What do any of these words mean?
-
-* Open source
-  * Software that is distributed along with a copy of the code used to make it
-* Linux
-  * A kernel that is frequently distributed with operating system tools made by the GNU project
-    * Often people say Linux to refer to the whole operating system, although they should technically say GNU/Linux
-    * Linux is the stuff "under the hood"; GNU is the stuff you interact with as a user
-* Kernel
-  * The part of the operating system that is in charge of booting the computer and provides ways to interact with it to "userspace" tools 
-* Operating system
-  * The software that allows you to use the computer, often including things like a desktop where you can have different program windows open
-
-<!--
-  TODO reference:
-  https://kwb-r.github.io/fakin.doc/best-practices.html#versioning
-  https://happygitwithr.com/
-  https://github.com/swcarpentry/git-novice
-  https://happygitwithr.com/github-acct
-  https://rstudio.github.io/cheatsheets/git-github.pdf
-  https://docs.github.com/en/get-started/learning-about-github/github-glossary
-  https://docs.github.com/en/get-started/using-github/github-flow
-  https://docs.codeberg.org/git/
-  https://happygitwithr.com/shell#shell
-  https://happygitwithr.com/git-basics
-  
-  This file can be built into an interactive HTML slideshow using the following command:
-
-
-  If you would like a PDF version of it, you can print the HTML page to a PDF and it should work just fine
--->
+You can then [view the HTML file in a web browser](https://www.geeksforgeeks.org/html/how-to-access-an-html-document-in-a-browser/), and print it to a PDF if you would like.

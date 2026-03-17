@@ -22,10 +22,27 @@ $endif$
   <link rel="stylesheet" type="text/css" media="screen, projection, print"
     href="$slidy-url$/styles/slidy.css" />
   <style>
-    div.slide {
+    html, body, div.slidy_toc, div.slide, div.toolbar, div.sourceCode {
+      background-color: #0a0812 !important;
+      color: #faebf1 !important;
+      code {
+        color: #a7e892;
+      }
+      a {
+        color: #f5b1cc !important;
+        code {
+          color: #f5b1cc;
+        }
+        :visited {
+          color: #e45c96 !important;
+          code {
+            color: #e45c96;
+          }
+        }
+      }
       .path-header {
         margin-top: 1rem;
-        background-color: #E5E6E7;
+        background-color: #413d43;
       }
       h1 {
         padding-top: 1rem;
@@ -37,9 +54,37 @@ $endif$
         padding-left: 2rem;
       }
       blockquote {
-        background-color: #E5E6E7;
+        background-color: #413d43;
         padding-top: 1rem;
         padding-bottom: 1rem;
+      }
+      pre {
+        background-color: #0a0812;
+        border-color: #f5b1cc;
+        code {
+          color: #faebf1 !important;
+        }
+        span.dt {
+          color: #faebf1;
+        }
+        span.co {
+          color: #aa9fa7;
+        }
+        span.fu {
+          color: #a7e892;
+        }
+        span.at {
+          color: #93e8d3;
+        }
+        span.st {
+          color: #ffc61a;
+        }
+        span.va {
+          color: #a288d9;
+        }
+        span.bu {
+          color: #00ac8c;
+        }
       }
     }
   </style>
