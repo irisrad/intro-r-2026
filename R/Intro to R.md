@@ -23,7 +23,7 @@
 `cp file1 my-folder/copied file`
 
 
-### git vocabulary
+### Git Vocabulary
 * Repository — a folder git is tracking
 * Commit — snapshot
 * Branch — a name of a commit
@@ -33,7 +33,7 @@
 	* Upstream — main version of repository
 
 
-### open fork to local machine
+### Open Fork on Local Machine
 * Make a directory to use (get to the folder you want to be in first using cd)
 mkdir directory-name
 * Click "Fork" button on github.com page and create a fork for yourself (can be same name)
@@ -42,7 +42,7 @@ mkdir directory-name
 git clone git@github.com:LorenShumaker/intro-r-2026.git        
 
 
-### commiting changes
+### Commiting Changes from Local to Git
 
 * first, make your changes and save the file...
 * see difference between saved file\
@@ -54,11 +54,11 @@ git clone git@github.com:LorenShumaker/intro-r-2026.git
 * push the commited changes to the fork\
 `git push -u origin main`
 
-
-
+\
+\
 ***
-
-
+\
+\
 
 # RStudio
 
