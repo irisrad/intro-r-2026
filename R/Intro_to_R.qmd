@@ -101,7 +101,7 @@ Viewing = inspect rows and column types.
 ### Import with rio
 
 ```{r}
-csv_path <- "../data/data.csv"
+csv_path <- "../data/raw/presurvey_20260317.csv"
 survey_raw <- rio::import(csv_path)
 ```
 
