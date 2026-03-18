@@ -1,7 +1,5 @@
 # Intro to R 
 
-==hey this is is a comment==
-
 ---
 
 > this is a block quote
