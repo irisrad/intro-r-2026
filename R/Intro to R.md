@@ -12,11 +12,15 @@
 * GitLab or Codeburg is available as non-MS alternative to GitHub
 
 
-### Bash (standard terminal language) codes
-ls 		list files/folders
-pwd 	name current folder
-cp 		file1 my-folder/
-cp 		file1 my-folder/copied file
+### Common Bash (standard terminal language) codes
+* list files/folders
+`ls`
+* name current folder
+`pwd`
+* copy file
+`cp file1 my-folder/`
+* copy folder
+`cp file1 my-folder/copied file`
 
 
 ### git vocabulary
@@ -65,23 +69,20 @@ git clone git@github.com:LorenShumaker/intro-r-2026.git
 
 ### General Notes
 
-* R Studio cheat sheets
-> In RStudio go to Help > Cheat Sheets > whichever one you want or "Browse Cheat Sheets"
-
+* R Studio cheat sheets:
+	* In RStudio go to Help > Cheat Sheets > whichever one you want or "Browse Cheat Sheets"
 * quarto options
-https://quarto-tdg.org/yaml
-
-* R is case sensitive
-* 
-
+	* https://quarto-tdg.org/yaml
+* R is case sensitive 
 
 
 ### Coding in R
 
+* Command + Option + i inserts new code chunk that looks like this:
+```
+\```{r}
 
-Command + Option + i inserts new code chunk that looks like this:
-```{r}
-
+\```
 ```
 
 * Notes can go outside of that chunk, or # can start a note
@@ -90,8 +91,8 @@ Command + Option + i inserts new code chunk that looks like this:
 
 ### R Functions
 
-* get the data type of whatever is in the number
-typeof(8.5)
+* get the data type of whatever is in the parentheses
+`typeof(8.5)`
 
 
 
