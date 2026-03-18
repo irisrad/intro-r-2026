@@ -23,7 +23,7 @@ cp 		file1 my-folder/copied file
 * Repository — a folder git is tracking
 * Commit — snapshot
 * Branch — a name of a commit
-	* Default Branch —
+	* Default Branch
 * Fork — copy of entire repository
 * Remote — URL pointing to another copy of the repository
 	* Upstream — main version of repository
@@ -42,13 +42,13 @@ git clone git@github.com:LorenShumaker/intro-r-2026.git
 
 * first, make your changes and save the file...
 * see difference between saved file
-'git diff'
+`git diff`
 * load the changes into the commit
-'git add .'
+`git add .`
 * commit the file and say what you changed (you MUST say what you changed)
-'git commit -m "say what's different"'
+`git commit -m "say what's different"`
 * push the commited changes to the fork
-'git push -u origin main'
+`git push -u origin main`
 
 ***
 
