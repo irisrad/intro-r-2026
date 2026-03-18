@@ -1,0 +1,27 @@
+---
+title: "R training"
+author: "Lindsey"
+date: 2026-03-18
+format: html
+editor: visual
+---
+
+I am learning R!
+
+```{r}
+#Notes for coders
+
+
+```
+
+```{r}
+3
+4
+typeof(8.5)
+```
+
+```{r}
+"text strings are fun!"
+
+```
+

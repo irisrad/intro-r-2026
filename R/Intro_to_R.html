@@ -695,54 +695,48 @@ Text analysis (intro) = tokenize words and count with tidytext and stringr.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">slice_sample</span>(survey, <span class="at">n =</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>           timestamp      os
-1  3/17/2026 8:58:25 Windows
-2 3/17/2026 17:08:14 Windows
-3 3/17/2026 16:51:38 Windows
-4 3/13/2026 16:17:05        
-5 3/16/2026 14:49:43 Windows
-                                                 prior_exp
-1 Used R in a class in school (even if it was a while ago)
-2                                 No previous R experience
-3                         Regularly observe others using R
-4                                                         
-5                                 No previous R experience
-                                                                                                                                                                           r_hope
-1                                           Statistical modeling &amp; forecasting – building predictive models (e.g., safety incidents, ridership trends, performance metrics, etc.)
-2                                                                                                                                      Urban/regional planning and producing maps
-3                                                                                         I hope to build redundancy in my team and learn new tools for my data analysis toolbox.
-4                                                                                                                                                                                
-5 R is regularly used by peers at DEQ. Current have coworker use R to upload data I collected into database. Hope to be able to run that code, analyze the data and create graphs
-              travel_mode                     travel_direct          distance
-1 Public Transit, Walking Yes - I intend to travel directly          15 miles
-2          Public Transit Yes - I intend to travel directly     About 4 miles
-3                 Walking Yes - I intend to travel directly 0.5 miles or less
-4                                                                            
-5                 Walking Yes - I intend to travel directly            1 mile
-  commute_time  drink
-1   45 minutes    Tea
-2   40 minutes    Tea
-3   10 minutes Coffee
-4                    
-5   10 minutes Coffee
-                                                    movie_quote pineapple_ok
-1                              “I’ll be back.” — The Terminator         TRUE
-2 “If this child is not the word of God, then God never spoke.”         TRUE
-3                                       To infinity and beyond!         TRUE
-4                                                                       TRUE
-5                          Oh my god! I've killed Harry Potter!         TRUE
-  commute_digits distance_digits commute_words_num distance_words_num
-1             45              15              &lt;NA&gt;               &lt;NA&gt;
-2             40               4              &lt;NA&gt;               &lt;NA&gt;
-3             10               0              &lt;NA&gt;               &lt;NA&gt;
-4           &lt;NA&gt;            &lt;NA&gt;              &lt;NA&gt;               &lt;NA&gt;
-5             10               1              &lt;NA&gt;               &lt;NA&gt;
-  commute_min distance_mi
-1          45          15
-2          40           4
-3          10           0
-4          NA          NA
-5          10           1</code></pre>
+<pre><code>           timestamp      os                prior_exp
+1 3/17/2026 13:44:30 Windows No previous R experience
+2 3/13/2026 16:16:27 Windows No previous R experience
+3 3/13/2026 16:16:54                                 
+4 3/13/2026 16:17:05                                 
+5  3/16/2026 8:56:08 Windows No previous R experience
+                                                                                                   r_hope
+1                                         Analyzing data sets more efficiently than how I do/can in Excel
+2 Depending on flexibility and usefulness most likely a report building or ad hoc report presenting tool.
+3                                                                                                        
+4                                                                                                        
+5                                                    To help me identify issues with our detection system
+              travel_mode                     travel_direct    distance
+1                    Bike Yes - I intend to travel directly     5 miles
+2 Public Transit, Walking Yes - I intend to travel directly  SEVEN MILE
+3                                                                      
+4                                                                      
+5             Car - Alone Yes - I intend to travel directly 40ish Miles
+     commute_time  drink
+1 30 mins by bike Coffee
+2 Thirty Six Mins    H2O
+3                       
+4                       
+5         An hour Coffee
+                                                                                                                     movie_quote
+1                                                                   I don't watch many movies to have a quote that comes to mind
+2                                                                                                            WHATS IN THE BOX?!?
+3                                                                                                                               
+4                                                                                                                               
+5 Not a movie, but from Ron Swanson in Parks and Rec, ""If there were more food and fewer people, this would be a great party.""
+  pineapple_ok commute_digits distance_digits commute_words_num
+1        FALSE             30               5              &lt;NA&gt;
+2         TRUE           &lt;NA&gt;            &lt;NA&gt;              &lt;NA&gt;
+3         TRUE           &lt;NA&gt;            &lt;NA&gt;              &lt;NA&gt;
+4         TRUE           &lt;NA&gt;            &lt;NA&gt;              &lt;NA&gt;
+5        FALSE           &lt;NA&gt;              40              &lt;NA&gt;
+  distance_words_num commute_min distance_mi
+1               &lt;NA&gt;          30           5
+2               &lt;NA&gt;          NA          NA
+3               &lt;NA&gt;          NA          NA
+4               &lt;NA&gt;          NA          NA
+5               &lt;NA&gt;          NA          40</code></pre>
 </div>
 </div>
 </section>
