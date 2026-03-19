@@ -1,6 +1,43 @@
 # Troubleshooting Known Issues
 
-### Cloning a Repository using SSH
+## Git Fork Diverged from Main Repo
+
+If you are trying to synchronize your fork with this repository and you get an error message like:
+
+```
+hint: You have divergent branches and need to specify how to reconcile them.
+hint: You can do so by running one of the following commands sometime before
+hint: your next pull:
+hint:
+hint:   git config pull.rebase false  # merge
+hint:   git config pull.rebase true   # rebase
+hint:   git config pull.ff only       # fast-forward only
+hint:
+hint: You can replace "git config" with "git config --global" to set a default
+hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+hint: or --ff-only on the command line to override the configured default per
+hint: invocation.
+fatal: Need to specify how to reconcile divergent branches.
+```
+
+This is most likely because the `main` branch of this repository has undergone a `rebase` since you made your fork.
+
+To resolve this from the `main` branch in your local copy of your fork:
+
+```bash
+# save a copy of your current main branch as the branch old-main
+git checkout -b old-main main
+git branch -D main
+# point git at the main repo, if you haven't already
+git remote add upstream git@github.com:PSUTrec/intro-r-2026.git
+git fetch upstream
+git checkout upstream/main
+git switch -c main
+# this will replace the main branch on your fork on GitHub with the current main branch of the main repo
+git push -fu origin main
+```
+
+## Cloning a Repository using SSH
 
 While trying to run `git clone`, you may receive an error message that says:
 
