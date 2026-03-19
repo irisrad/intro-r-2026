@@ -35,6 +35,15 @@ git checkout upstream/main
 git switch -c main
 # this will replace the main branch on your fork on GitHub with the current main branch of the main repo
 git push -fu origin main
+```
+
+### Reconciling changes that were already on your fork
+
+The most straightforward way is to go look at your fork on GitHub and copy-paste any new things that you need from there.
+
+Alternatively, to do this process using `git`:
+
+```bash
 # to get a commit you already had on your main branch before doing this into the new version of main, find the commit id with
 git log
 # then, pray that you don't have any merge conflicts and replace COMMIT with the id
