@@ -17,15 +17,11 @@ tail(raw_15min)
 
 summary(raw_15min)
 
-
 glimpse(raw_15min)
 
 
-table(raw_15min$occupancy)
-
 
 dfSummary(raw_15min)
-
 
 raw_15min[2, ]
 raw_15min[ , 2]
@@ -33,3 +29,19 @@ raw_15min[2, 3]
 
 mean(raw_15min$speed)
 hist(raw_15min$occupancy)
+
+
+# learn about filters
+occ_20plus <- raw_15min |>
+  filter(occupancy > 20)
+
+
+# learn about filters
+occ_20plus <- raw_15min |>
+  filter(occupancy > 20)
+
+
+occ_10plus_sp80 <- raw_15min |>
+  filter(occupancy < 20 & speed > 80)
+table(occ_10plus_sp80$detector_id)
+
