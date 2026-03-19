@@ -103,6 +103,27 @@ git clone git@github.com:LorenShumaker/intro-r-2026.git
 * R handles data types differently if they are character, logical, vector, or numerical
 
 
+### R Packages
+
+* To learn more about a package like `rio` you can type  `?? rio` in the RStudio Console
+* some common packages (provided in the training resources):\
+`
+pkgs <- c(
+  "rio",        # import/export by file extension
+  "tidyverse",  # dplyr, tidyr, ggplot2, readr, etc.
+  "lubridate",  # date-time parsing
+  "stringr",    # string utilities
+  "janitor",    # clean_names(), tabyl(), etc.
+  "scales",     # percent_format and friends
+  "tidycensus"  # ACS API wrapper (optional bonus section)
+)`
+
+
+* You can also install cran verified packages by going to the Packages pane in RStudio and clicking "Install" then searching for the name of a package
+##### Other valuable packages
+* `summarytools` Provides more detailed tools for sumarizing, after installed and loaded use the function `dfSummary()`
+
+
 ### R Functions
 
 * Functions can be recognizable when they are followed by parentheses
@@ -135,25 +156,16 @@ git clone git@github.com:LorenShumaker/intro-r-2026.git
 `data-frame-name[2, 3]`
 
 
-### R Packages
+### R Filters 
 
-* To learn more about a package like `rio` you can type  `?? rio` in the RStudio Console
-* some common packages (provided in the training resources):\
-`
-pkgs <- c(
-  "rio",        # import/export by file extension
-  "tidyverse",  # dplyr, tidyr, ggplot2, readr, etc.
-  "lubridate",  # date-time parsing
-  "stringr",    # string utilities
-  "janitor",    # clean_names(), tabyl(), etc.
-  "scales",     # percent_format and friends
-  "tidycensus"  # ACS API wrapper (optional bonus section)
-)`
+##### These are dplyr functions, be sure to install and load the package first. See the dplyr cheat sheet for more filtering functions
 
-
-* You can also install cran verified packages by going to the Packages pane in RStudio and clicking "Install" then searching for the name of a package
-##### Other valuable packages
-* `summarytools` Provides more detailed tools for sumarizing, after installed and loaded use the function `dfSummary()`
+* filter occupancy column (for example) to greater than 20 \
+`new-filtered-object-name <- data-frame-name |>
+  filter(occupancy > 20)`\
+* filter occupancy column (for example) to less than 10  and speed column (also for example) to greater than 80\
+`new-filtered-object-name <- data-frame-name |>
+  filter(occupancy < 20 & speed > 80)`\
 
 
 
