@@ -4,6 +4,12 @@
 
 
 
+### Entering Directory
+
+* 
+
+
+
 ### Data Organization
 
 * Organize by Project first then by Data Source second
@@ -15,6 +21,8 @@
 ### Common Bash (standard terminal language) codes
 * list files/folders
 `ls`
+* list all files/folders including hidden
+`ls -a`
 * name current folder
 `pwd`
 * copy file
