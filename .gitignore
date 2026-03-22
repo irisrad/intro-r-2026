@@ -48,7 +48,4 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
-# Generated HTML slides
-slides/output/*.html
-
 *.DS_Store
